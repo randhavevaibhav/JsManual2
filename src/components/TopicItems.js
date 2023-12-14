@@ -1,6 +1,7 @@
 import '../styles/TopicItems.css';
-import "highlight.js/styles/github.css";
-import "../styles/atom-one-drak.css";
+import "../styles/dracula.css";
+// import "../styles/atom-one-drak.css";
+
 import hljs from "highlight.js";
 
 import { useEffect} from "react";
