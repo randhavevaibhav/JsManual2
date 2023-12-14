@@ -3,7 +3,7 @@ import './App.css';
 import Topics from './components/Topics';
 function App() {
   return (
-    <div className="App">
+    <div id="App">
     <Topics/>
     </div>
   );
