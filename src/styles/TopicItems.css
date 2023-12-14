@@ -1,0 +1,40 @@
+.container{
+    height: 500px;
+    width: 500px;
+    border: solid red 1px;
+    
+}
+.padding20px
+{
+    padding: 20px;
+}
+.topic-name{
+
+}
+
+.Code{
+
+}
+
+.explanation{
+
+}
+
+.youtube-links
+{
+
+}
+
+.code-body{
+    border-radius: 10px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+   .container{
+    width: 98%;
+   }
+  }
+
+
