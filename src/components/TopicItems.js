@@ -17,7 +17,7 @@ const TopicItems = ({idx,topicName,syntax,explanation,videoLink})=>{
             {topicName}
         </div>
         <div className='Code padding20px'>
-          <pre className='code-body'>
+          <pre className='code-body' style={{whiteSpace:"pre-wrap"}}>
 
             <code className="javascript" >
             {syntax}
