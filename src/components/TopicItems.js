@@ -1,25 +1,50 @@
 import '../styles/TopicItems.css';
 import "../styles/dracula.css";
-// import "../styles/atom-one-drak.css";
+
 
 import hljs from "highlight.js";
-
-import { useEffect} from "react";
+import "highlightjs-copy/dist/highlightjs-copy.min.css";
+import { useEffect,useState} from "react";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const TopicItems = ({idx,topicName,syntax,explanation,videoLink})=>{
- 
+const [copButtonText,setcopButtonText] = useState("Copy Code");
   useEffect(() => {
     hljs.highlightAll();
+    
+    
   }, []);
+  
     return(<>
     <div className='container' id={idx} >
+      <div className='first-section'>
+     
         <div className="topic-name padding20px" >
             {topicName}
         </div>
+        <div id='copy-button'>
+      <CopyToClipboard text={syntax}
+          onCopy={() => {
+            
+            setcopButtonText("Copied !!");
+            setTimeout(()=>{
+              setcopButtonText("Copy Code");
+            },4000)
+            
+            
+            }}>
+          <button>{copButtonText}</button>
+        </CopyToClipboard>
+
+      </div>
+        
+
+      </div>
+     
         <div className='Code padding20px'>
           <pre className='code-body' style={{whiteSpace:"pre-wrap"}}>
 
-            <code className="javascript" >
+            <code className="javascript"style={{borderRadius:10}} >
             {syntax}
             </code>
           </pre>
