@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+code {
+  font-family: Consolas, Menlo, Monaco, 'Courier New',
+    monospace;
+} 
 #root{
   display: flex;
   align-items: center;
@@ -26,12 +30,13 @@ code {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 a {
@@ -48,8 +53,17 @@ body {
   padding: 0;
   display: flex;
   place-items: center;
- width: 100vw;
- height: 100vh;
+
+ font-size: 13px;
+ print-color-adjust: exact;
+}
+html,body
+{
+  print-color-adjust: exact;
+  width: 100%;
+  height: fit-content;
+  background-color: black;
+  print-color-adjust: exact;
 }
 
 h1 {

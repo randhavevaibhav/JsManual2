@@ -1,5 +1,13 @@
+.main-container
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
 .container{
-    height: 500px;
+    height: fit-content;
     width: 500px;
     
     border: solid white 1px;

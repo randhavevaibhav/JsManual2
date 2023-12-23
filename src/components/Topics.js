@@ -4,11 +4,12 @@ import TopicItems from "./TopicItems";
 const Topics = () =>{
 
 return(<>
+<div className="main-container">
 
     {TopicList.map((topic,id)=>{
 
 return(
-
+    
 <TopicItems
 key={id}
 topicName={topic.topicName}
@@ -16,11 +17,18 @@ syntax = {topic.syntax}
 explanation = {topic.explanation}
 videoLink = {topic.videoLink}
 
-></TopicItems>)
-})}
+></TopicItems>
+
+   
+
+)
+})
 
 
+}
 
+
+</div>
 
 
 </>);
