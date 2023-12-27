@@ -9,6 +9,7 @@ let arrLength = arr.length;
 console.log("Array lenght is ==> "+arrLength);
 //Output - Array lenght is ==> 6`,
     explanation:"self Explain",
+    videoTitle:"",
     videoLink:""
 },
 {
@@ -25,13 +26,16 @@ console.log("Array lenght is ==> "+arrLength);
     });
     
     myPromise
+      //then called when promise is resolved
       .then((message) => {
         console.log(message);
       })
+      //if any error accours or the promise rejected then catch method is called.
       .catch((err) => {
         console.log(err);
       });
     //Sync code
+    //Sync code alway run before the Async code (i.e., Promises)
     console.log("I am a Synchronus code !!!");
     //Output
     /*
@@ -40,7 +44,8 @@ console.log("Array lenght is ==> "+arrLength);
     */
     `,
     explanation:"self Explain",
-    videoLink:""
+    videoTitle:"JavaScript Promises In 10 Minutes",
+    videoLink:"https://youtu.be/DHvZLI7Db8E?si=7935uGMcss3erX3u"
 },
 
 

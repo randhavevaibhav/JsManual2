@@ -7,7 +7,7 @@ import "highlightjs-copy/dist/highlightjs-copy.min.css";
 import { useEffect,useState} from "react";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-const TopicItems = ({idx,topicName,syntax,explanation,videoLink})=>{
+const TopicItems = ({idx,topicName,syntax,explanation,videoLink,videoTitle})=>{
 const [copButtonText,setcopButtonText] = useState("Copy Code");
   useEffect(() => {
     hljs.highlightAll();
@@ -42,7 +42,7 @@ const [copButtonText,setcopButtonText] = useState("Copy Code");
 
       </div>
      
-        <div className='Code padding20px'>
+        <div className='Code'>
           <pre className='code-body' style={{whiteSpace:"pre-wrap"}}>
 
             <code className="javascript"style={{borderRadius:10}} >
@@ -55,7 +55,9 @@ const [copButtonText,setcopButtonText] = useState("Copy Code");
           {explanation}
         </div>
         <div className="youtube-links padding20px">
-          {videoLink}
+          <h3>YouTube Link - </h3>
+          <a href={videoLink} target='_blank' rel="noreferrer">{videoTitle}</a>
+          
         </div>
        
       </div>

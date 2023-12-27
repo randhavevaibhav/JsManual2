@@ -16,6 +16,7 @@ topicName={topic.topicName}
 syntax = {topic.syntax}
 explanation = {topic.explanation}
 videoLink = {topic.videoLink}
+videoTitle = {topic.videoTitle}
 
 ></TopicItems>
 
