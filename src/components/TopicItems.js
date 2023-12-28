@@ -21,7 +21,8 @@ const [copButtonText,setcopButtonText] = useState("Copy Code");
       <div className='first-section'>
      
         <div className="topic-name padding20px" >
-            {topicName}
+            <b>{topicName}</b>
+            
         </div>
         <div id='copy-button'>
       <CopyToClipboard text={syntax}
@@ -52,7 +53,9 @@ const [copButtonText,setcopButtonText] = useState("Copy Code");
            
         </div>
         <div className="explanation padding20px">
+          <b>Explaination:</b><br/>
           {explanation}
+          
         </div>
         <div className="youtube-links padding20px">
           <h3>YouTube Link - </h3>
