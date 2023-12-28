@@ -53,7 +53,7 @@ const [copButtonText,setcopButtonText] = useState("Copy Code");
            
         </div>
         <div className="explanation padding20px">
-          <b>Explaination:</b><br/>
+          <h3>Explaination:</h3>
           {explanation}
           
         </div>
