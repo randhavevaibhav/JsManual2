@@ -14,6 +14,7 @@ function ArrayMethods() {
             topicName={topic.topicName}
             syntax={topic.syntax}
             explanation={topic.explanation}
+            IMPPoints={topic.IMPPoints}
             videoLink={topic.videoLink}
             videoTitle={topic.videoTitle}
           ></TopicItems>

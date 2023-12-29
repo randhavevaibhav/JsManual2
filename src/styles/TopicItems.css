@@ -32,6 +32,14 @@
 .explanation{
 
 }
+.ImpPoints > .points
+{
+  display: flex;
+  gap:10px;
+}
+p{
+  font-size: 15px;
+}
 
 .youtube-links
 {
