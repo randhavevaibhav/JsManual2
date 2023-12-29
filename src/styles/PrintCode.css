@@ -8,7 +8,19 @@
 textarea {
     resize: none;
     width: 50%;
+    display: flex;
+    flex-direction: column;
   }
+.textArea
+{
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.textArea>button{
+  width: fit-content;
+}
 
   @media only screen and (max-width: 600px) {
 
@@ -16,5 +28,9 @@ textarea {
        
         width: 92%;
       }
+      .textArea
+{
+  margin-left: 0px;
+}
   }
 

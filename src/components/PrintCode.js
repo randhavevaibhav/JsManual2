@@ -38,11 +38,8 @@ const sendTextArea = ()=>{
       </>:<> <div className="textArea">
             <textarea rows="30" cols="80" id="codeTextArea" placeholder="Enter code to be converted into PDF ......."></textarea>
             
-        </div>
-        <div className="con-code-button">
-           {/* <Link to="/JsManual2/concode" onClick={()=>{
-          
-           }}>Converted Code</Link> */}
+        
+        
            <button onClick={()=>{
                 
                 sendTextArea();

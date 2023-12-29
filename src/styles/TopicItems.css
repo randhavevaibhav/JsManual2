@@ -1,68 +1,60 @@
-.main-container
-{
+.main-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 50px;
+  margin-left: 200px;
 }
 
+.container {
+  height: fit-content;
+  width: 500px;
 
-.container{
-    height: fit-content;
-    width: 500px;
-    
-    border: solid white 1px;
+  border: solid white 1px;
   padding: 0px;
   border-radius: 10px;
   margin: 10px;
-    
 }
-.padding20px
-{
-    padding: 20px;
+.padding20px {
+  padding: 20px;
 }
-.topic-name{
-
-}
-
-.Code{
-
+.topic-name > b {
+  font-weight: 700;
+  font-size: 19px;
 }
 
-.explanation{
-
+.Code {
 }
-.ImpPoints > .points
-{
+
+.explanation {
+}
+.ImpPoints > .points {
   display: flex;
-  gap:10px;
+  gap: 10px;
 }
-p{
+p {
   font-size: 15px;
 }
 
-.youtube-links
-{
-
+.youtube-links {
 }
 
-.code-body{
-    border-radius: 10px;
+.code-body {
+  border-radius: 10px;
 }
 
-.first-section{
-    display: flex;
+.first-section {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
 }
 
-
-
 @media only screen and (max-width: 600px) {
-   .container{
+  .container {
     width: 98%;
-   }
   }
-
-
+  .main-container {
+    margin-left: 0px;
+  }
+}
