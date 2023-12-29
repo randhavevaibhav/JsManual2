@@ -21,6 +21,7 @@
 .topic-name > b {
   font-weight: 700;
   font-size: 19px;
+  word-wrap: anywhere;
 }
 
 .Code {
@@ -48,6 +49,7 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  flex-wrap: wrap;
 }
 
 @media only screen and (max-width: 600px) {

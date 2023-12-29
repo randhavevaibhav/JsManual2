@@ -33,22 +33,33 @@ console.log("string array ==> "+stringArray);
     videoLink: "",
   },
 
-  
   {
     topicName: "Array slice(start,end)",
     syntax: `const arr = [1,2,3,4,5,6];
 let slicedArr = arr.slice(2,5);
 console.log("array after slice ==> "+slicedArr);
 //Output - array after slice ==> [3,4,5]`,
-    explanation:
-      `arr.slice method slice an array with the starting position and a ending position.`,
-    IMPPoints:[
-        "index started from 0",
-        "ending postion is excluded from the operation i.e.,5"
+    explanation: `arr.slice method slice an array with the starting position and a ending position.`,
+    IMPPoints: [
+      "index started from 0",
+      "ending postion is excluded from the operation i.e.,5",
+    ],
 
-    ]
-       
-    ,
+    videoTitle: "",
+    videoLink: "",
+  },
+
+  {
+    topicName: "Array splice(start,how_many_to_delete,what_to_insert)",
+    syntax: `const arr = [1,2,3,4,5,6];
+arr.splice(2,2,33,44);
+console.log("array after splice ==> "+arr);
+//Output - array after slice ==> [ 1, 2, 33, 44, 5, 6 ]`,
+    explanation: `splice method used to either
+    remove or for adding element to the array.`,
+    IMPPoints: [
+      "arr.splice() actually modifies original array."
+    ],
 
     videoTitle: "",
     videoLink: "",
