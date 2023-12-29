@@ -77,7 +77,7 @@ const Sidebar = () => {
                 {item.isOpen && (
                   <ul className="sub-menu" >
                    
-                    <li >Sub-Item 1</li>
+                    <li ><Link to="/JsManual2/arraymethods">Array Methods</Link></li>
                     <li >Sub-Item 2</li>
                   </ul>
                 )}
