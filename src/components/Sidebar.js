@@ -3,14 +3,9 @@ import React, { useState } from "react";
 import '../styles/Sidebar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-
+import { SidebarMenuList } from "../helper/SidebarMenuList";
 const Sidebar = () => {
-    const [menuItems, setMenuItems] = useState([
-      { id: 1, title: "Print Code", isOpen: false,path:"/JsManual2/printcode" },
-      { id: 2, title: "topics", isOpen: false,path:"/JsManual2/topics" },
-      { id: 3, title: "Services", isOpen: false },
-      { id: 4, title: "Contact", isOpen: false },
-    ]);
+    const [menuItems, setMenuItems] = useState(SidebarMenuList);
   
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   
@@ -74,13 +69,23 @@ const Sidebar = () => {
                 }}>
                  <Link to={item.path}>{item.title}</Link>
                 </div>
-                {item.isOpen && (
-                  <ul className="sub-menu" >
+                {item.isOpen && toString.call(item.subTopics) === "[object Array]"? <>
+                <ul className="sub-menu" >
                    
-                    <li ><Link to="/JsManual2/arraymethods">Array Methods</Link></li>
-                    <li >Sub-Item 2</li>
+                    <li >{item.subTopics.map((subTopic)=>{
+                        return(<>
+                        <Link to={subTopic.path} >{subTopic.title}</Link>
+                        </>)
+
+
+                    })}</li>
+                    
                   </ul>
-                )}
+                
+                
+                </>:""}
+                  
+                
               </li>
             ))}
           </ul>
