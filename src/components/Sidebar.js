@@ -1,4 +1,5 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import {faAngleRight} from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import '../styles/Sidebar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -72,13 +73,16 @@ const Sidebar = () => {
                 {item.isOpen && toString.call(item.subTopics) === "[object Array]"? <>
                 <ul className="sub-menu" >
                    
-                    <li >{item.subTopics.map((subTopic)=>{
+                   {item.subTopics.map((subTopic)=>{
                         return(<>
-                        <Link to={subTopic.path} >{subTopic.title}</Link>
+                        <li >
+                        <FontAwesomeIcon icon={faAngleRight} size="sm" color="white"/>
+                        <Link to={subTopic.path} >{" "+subTopic.title}</Link>
+                        </li>
                         </>)
 
 
-                    })}</li>
+                    })}
                     
                   </ul>
                 

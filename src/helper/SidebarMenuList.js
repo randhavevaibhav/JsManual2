@@ -5,7 +5,10 @@ export const SidebarMenuList = [
     title: "Topics",
     isOpen: false,
     path: "/JsManual2/topics",
-    subTopics: [{ path: "/JsManual2/arraymethods", title: "Array Methods" }],
+    subTopics: [{ path: "/JsManual2/arraymethods", title: "Array Methods" },
+    { path: "/JsManual2/promises", title: "Promises in js" }
+        
+    ],
   },
   
 ];

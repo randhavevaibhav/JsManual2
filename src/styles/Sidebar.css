@@ -19,8 +19,15 @@
     background-color: black;
     padding: 10px;
   }
+.menu-item>a{
+  text-decoration: none;
+  color: white;
+}
+.sub-menu>li>a{
+  text-decoration: none;
+  color:white
 
-
+}
   .openSidebar
   {
     transition: width 0.5s ease-in-out;
