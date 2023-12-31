@@ -55,8 +55,9 @@ const TopicItems = ({
         </div>
 
         {toString.call(IMPPoints) === "[object Array]" ? (
-          <>
-            <div className="ImpPoints padding20px">
+          (IMPPoints.length>0 ?<>
+          
+          <div className="ImpPoints padding20px">
               <h3>IMP Points:</h3>
               
                 {IMPPoints.map((point, idx) => {
@@ -75,7 +76,9 @@ const TopicItems = ({
                 })}
               
             </div>
-          </>
+          
+          
+          </>:"")
         ) : (
           ""
         )}
