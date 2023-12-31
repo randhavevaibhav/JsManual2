@@ -6,6 +6,7 @@ import ConvertedCode from "./components/CovertedCode";
 import Sidebar from "./components/Sidebar";
 import ArrayMethods from "./sections/ArrayMethods";
 import Promises from "./sections/Promises";
+import AddNewConcept from "./components/AddNewConcept";
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/JsManual2/topics" element={<Topics/>}/>
         <Route path="/JsManual2/arraymethods" element={<ArrayMethods/>}/>
         <Route path="/JsManual2/promises" element={<Promises/>}/>
+        <Route path="/JsManual2/addnewconcept" element={<AddNewConcept/>}/>
     
       
       

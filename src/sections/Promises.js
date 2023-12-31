@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import TopicItems from "../components/TopicItems";
-import { PromisesList } from "../helper/PromisesList";
+
 import axios from 'axios';
 
 function Promises() {
@@ -9,8 +9,7 @@ const [fetchTopic,setFetchTopic] = useState([]);
 useEffect(()=>{
   axios.get(`https://js-manual2-backend.vercel.app/jstopics/${QTopicName}`)
   .then((res)=>{
-    // console.log("json ===> "+JSON.stringify(res.data.data));
-    // console.log("type ===> "+toString.call(res.data.data));
+   
     setFetchTopic(res.data.data) ;
   })
   
@@ -24,7 +23,7 @@ useEffect(()=>{
 },[])
 
 
-console.log("fetchTopic ====> "+fetchTopic.map((val)=>val.topicName));
+
 
   return (
     <>
