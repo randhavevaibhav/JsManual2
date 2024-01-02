@@ -5,10 +5,25 @@ import '../styles/Sidebar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { SidebarMenuList } from "../helper/SidebarMenuList";
+import { useEffect,useRef } from "react";
 const Sidebar = () => {
     const [menuItems, setMenuItems] = useState(SidebarMenuList);
   
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const newRef = useRef(null);
+    useEffect(() => {
+      document.addEventListener("mousedown", handleOutsideClick);
+      return () => {
+        document.removeEventListener("mousedown", handleOutsideClick);
+      };
+    });
+
+    const handleOutsideClick = (e) => {
+      if (newRef.current && !newRef.current.contains(e.target)) {
+        setIsSidebarOpen(!isSidebarOpen);
+      }
+    };
   
     const toggleSidebar = () => {
       
@@ -53,7 +68,7 @@ const Sidebar = () => {
   
     return (
       <>
-      <div className="sidebar-container">
+      <div className="sidebar-container" ref={newRef}>
       <div className="hamburger-icon" onClick={()=>{
           toggleSidebar();
           
