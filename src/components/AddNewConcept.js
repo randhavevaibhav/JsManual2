@@ -3,6 +3,7 @@ import { useState } from "react";
 import "../styles/AddNewConcept.css";
 import { JsTopicList } from "../helper/JSTopicList";
 import axios from "axios";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function AddNewConcept() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ function AddNewConcept() {
 
   const [IMPInputValues, setIMPInputValues] = useState(['']);
   const [points, setPoints] = useState(["IMP point 1"]);
+  let IMPPointsFlag = true;
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -30,10 +32,11 @@ function AddNewConcept() {
       let regExp =
         /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
       if (urlToParse.match(regExp)) {
+        
         return true;
       }
     }
-    return false;
+   return false;
   };
 
   const validateFormData = (formData) => {
@@ -44,12 +47,14 @@ function AddNewConcept() {
 
 
     if (!checkTopic(formData.topicName)) {
+      
       return false;
     }
     if (topicNameLen > 50 || subTopicNameLen > 50 || YTVideoTitle > 50) {
       alert(
         "Please reduce no. of words in topic name, sub-topic name or in youtube video title"
       );
+      
       return false;
     }
 
@@ -59,6 +64,7 @@ function AddNewConcept() {
       if(fields.value===""|| fields.value===undefined)
       {
         alert("Please fill input filed no. "+(index+1));
+        IMPPointsFlag = false;
         return false;
       }
       });
@@ -70,6 +76,7 @@ function AddNewConcept() {
     if (validateYouTubeUrl(formData.YTVideoLink)) {
       if (formData.YTVideoTitle === "" || formData.YTVideoTitle === undefined) {
         alert("Please enter valid youtube video title !!");
+       
         return false;
       }
     } else if (
@@ -81,6 +88,7 @@ function AddNewConcept() {
         !(formData.YTVideoLink === "" || formData.YTVideoLink === undefined)
       ) {
         alert("Please enter valid youtube link !!");
+        
         return false;
       }
     } else if (
@@ -88,44 +96,15 @@ function AddNewConcept() {
     ) {
       if (!validateYouTubeUrl(formData.YTVideoLink)) {
         alert("Please enter valid youtube link !!");
-        return false;
+       
+       return false;
       }
     }
 
     return true;
   };
 
-  const formatCodeSyntax = (para) => {
-    let tempVal = para;
 
-    let fromAr = [
-        /\\/g,
-        /'/g,
-        /"/g,
-        /\r\n/g,
-        /[\r\n]/g,
-        /\t/g,
-        new RegExp("--" + ">", "g"),
-        new RegExp("<!" + "--", "g"),
-        /\//g,
-      ],
-      toAr = [
-        "\\\\",
-        "\\'",
-        '\\"',
-        "\\n",
-        "\\n",
-        "\\t",
-        "--'+'>",
-        "<!'+'--",
-        "\\/",
-      ];
-    for (let x = 0; x < fromAr.length; x++) {
-      tempVal = tempVal.replace(fromAr[x], toAr[x]);
-    }
-
-    return tempVal;
-  };
 
   const checkTopic = (Ptopic) => {
     if (JsTopicList.indexOf(Ptopic) < 0) {
@@ -133,10 +112,12 @@ function AddNewConcept() {
         `Metioned topic is not present in the list ==> 
     available list ====> ` + JsTopicList
       );
+      
       return false;
     } else {
       return true;
     }
+    
   };
 
   const clearFormData = (PFormData) => {
@@ -152,6 +133,19 @@ function AddNewConcept() {
       ...formData,
       ...blankForm,
     }));
+
+   let blankArr = [];
+
+   IMPInputValues.forEach(()=>{
+    blankArr.push("");
+   })
+
+    setIMPInputValues(blankArr);
+   
+
+
+
+
   };
 
   const saveDataToDB = (PformData) => {
@@ -177,12 +171,11 @@ function AddNewConcept() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    let formatedSyntaxStr = formatCodeSyntax(formData.syntax);
+    
 
-    if (validateFormData(formData)) {
+    if (validateFormData(formData) && IMPPointsFlag) {
       alert("Form validation passed !!!");
       
-      formData.syntax = formatedSyntaxStr;
       console.log("***** IMPInputValues ======> "+IMPInputValues);
 
     formData.IMPPoints = IMPInputValues;

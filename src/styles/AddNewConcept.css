@@ -12,7 +12,7 @@
 }
 
 .form-container{
-    border: solid white 1px;
+    /* border: solid white 1px; */
   padding: 0px;
   border-radius: 10px;
   height: 97%;
@@ -51,9 +51,10 @@ input#submit{
 #addIMPpointButton{
   width: 128px;
   margin-top: 5px;
+  background-color: green;
 }
 #IMPPoints-text-container>input{
-  border-radius: 2px;
+  border-radius: 6px;
   width: 207px;
   height: 23px;
 }
@@ -66,9 +67,36 @@ input#submit{
   margin-bottom: 3px;
 }
 
+#removeIMPpointButton>button{
+  background-color: red;
+
+  font-weight: 600;
+}
+
 @media only screen and (max-width: 600px) {
     .concept-main-container{
-        margin-left: 0;
+      margin-left: 12px;
+      margin-top: 57px;
+      width: 94vw;
+      height: fit-content;
     }
+
+    .form-container{
+      width: 98%;
+    }
+ 
+    #IMPPoints-main-container{
+      flex-direction: column;
+    }
+
+    .form-container>form{
+      gap: 3px;
+    }
+
+    #IMPPoints-text-container > input
+    {
+      width: 236px;
+    }
+  
   
   }
