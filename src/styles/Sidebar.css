@@ -4,12 +4,13 @@
 
 .sidebar {
     visibility: visible;
-    width: 200px;
-    height: fit-content;
+    
+   
     background-color: black;
     color: #fff;
-    height: 100vh;
-    
+    height: 70vh;
+    border: solid white 1px;
+    border-radius: 10px;
     
     
   }
@@ -30,7 +31,9 @@
 }
   .openSidebar
   {
-    transition: width 0.5s ease-in-out;
+    
+    transition: width 0.5s ease;
+    width: 200px;
   }
 
   .closedSidebar {

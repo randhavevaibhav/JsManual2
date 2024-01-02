@@ -8,7 +8,7 @@ import { SidebarMenuList } from "../helper/SidebarMenuList";
 const Sidebar = () => {
     const [menuItems, setMenuItems] = useState(SidebarMenuList);
   
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
     const toggleSidebar = () => {
       

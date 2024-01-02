@@ -3,7 +3,11 @@ import { useState } from "react";
 import "../styles/AddNewConcept.css";
 import { JsTopicList } from "../helper/JSTopicList";
 import axios from "axios";
-import { LoadingDiv, disableScreen,enableScreen } from "../helper/LoadingHelper";
+import {
+  LoadingDiv,
+  disableScreen,
+  enableScreen,
+} from "../helper/LoadingHelper";
 
 function AddNewConcept() {
   const [formData, setFormData] = useState({
@@ -152,7 +156,7 @@ function AddNewConcept() {
     disableScreen();
 
     //sample code to mimic database operation
-    
+
     // setTimeout(() => {
     //   setLoading(false);
     //   enableScreen();
@@ -222,116 +226,118 @@ function AddNewConcept() {
   };
   return (
     <>
-      <div className="concept-main-container">
-        <div className="form-container">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="topicName">Topic Name:</label>
-            <input
-              type="text"
-              id="topicName"
-              name="topicName"
-              value={formData.topicName}
-              onChange={handleChange}
-              required
-            />
-            <br />
+      <div className="wrapper-container">
+        <div className="concept-main-container">
+          <div className="form-container">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="topicName">Topic Name:</label>
+              <input
+                type="text"
+                id="topicName"
+                name="topicName"
+                value={formData.topicName}
+                onChange={handleChange}
+                required
+              />
+              <br />
 
-            <label htmlFor="subTopicName">Sub-Topic Name:</label>
-            <input
-              type="text"
-              id="subTopicName"
-              name="subTopicName"
-              value={formData.subTopicName}
-              onChange={handleChange}
-              required
-            />
-            <br />
+              <label htmlFor="subTopicName">Sub-Topic Name:</label>
+              <input
+                type="text"
+                id="subTopicName"
+                name="subTopicName"
+                value={formData.subTopicName}
+                onChange={handleChange}
+                required
+              />
+              <br />
 
-            <label htmlFor="syntax">Syntax:</label>
-            <textarea
-              type="text"
-              id="syntax"
-              name="syntax"
-              value={formData.syntax}
-              onChange={handleChange}
-              required
-            />
-            <br />
+              <label htmlFor="syntax">Syntax:</label>
+              <textarea
+                type="text"
+                id="syntax"
+                name="syntax"
+                value={formData.syntax}
+                onChange={handleChange}
+                required
+              />
+              <br />
 
-            <label htmlFor="explanation">Explanation:</label>
-            <textarea
-              type="text"
-              id="explanation"
-              name="explanation"
-              value={formData.explanation}
-              onChange={handleChange}
-              required
-            />
-            <br />
+              <label htmlFor="explanation">Explanation:</label>
+              <textarea
+                type="text"
+                id="explanation"
+                name="explanation"
+                value={formData.explanation}
+                onChange={handleChange}
+                required
+              />
+              <br />
 
-            {points.length > 0
-              ? points.map((point, index) => (
-                  <div id="IMPPoints-main-container">
-                    <div id="IMPPoints-text-container" key={index}>
-                      <label>{point}</label>
-                      <input
-                        type="text"
-                        value={IMPInputValues[index]}
-                        className="IMPInputs"
-                        onChange={(e) =>
-                          handleInputChange(index, e.target.value)
-                        }
-                      />
+              {points.length > 0
+                ? points.map((point, index) => (
+                    <div id="IMPPoints-main-container">
+                      <div id="IMPPoints-text-container" key={index}>
+                        <label>{point}</label>
+                        <input
+                          type="text"
+                          value={IMPInputValues[index]}
+                          className="IMPInputs"
+                          onChange={(e) =>
+                            handleInputChange(index, e.target.value)
+                          }
+                        />
+                      </div>
+                      <div id="removeIMPpointButton">
+                        <button
+                          type="button"
+                          onClick={() => removeTextField(index)}
+                        >
+                          Remove Point
+                        </button>
+                      </div>
                     </div>
-                    <div id="removeIMPpointButton">
-                      <button
-                        type="button"
-                        onClick={() => removeTextField(index)}
-                      >
-                        Remove Point
-                      </button>
-                    </div>
-                  </div>
-                ))
-              : ""}
+                  ))
+                : ""}
 
-            <button
-              id="addIMPpointButton"
-              type="button"
-              onClick={() => {
-                addTextField();
-              }}
-            >
-              Add IMP Point
-            </button>
+              <button
+                id="addIMPpointButton"
+                type="button"
+                onClick={() => {
+                  addTextField();
+                }}
+              >
+                Add IMP Point
+              </button>
 
-            <br />
+              <br />
 
-            <label htmlFor="YTVideoTitle">Youtube Video title:</label>
-            <input
-              type="text"
-              id="YTVideoTitle"
-              name="YTVideoTitle"
-              value={formData.YTVideoTitle}
-              onChange={handleChange}
-            />
-            <br />
-            <label htmlFor="YTVideoLink">Youtube Video Link:</label>
-            <input
-              type="text"
-              id="YTVideoLink"
-              name="YTVideoLink"
-              value={formData.YTVideoLink}
-              onChange={handleChange}
-            />
-            <br />
+              <label htmlFor="YTVideoTitle">Youtube Video title:</label>
+              <input
+                type="text"
+                id="YTVideoTitle"
+                name="YTVideoTitle"
+                value={formData.YTVideoTitle}
+                onChange={handleChange}
+              />
+              <br />
+              <label htmlFor="YTVideoLink">Youtube Video Link:</label>
+              <input
+                type="text"
+                id="YTVideoLink"
+                name="YTVideoLink"
+                value={formData.YTVideoLink}
+                onChange={handleChange}
+              />
+              <br />
 
-            <input type="submit" value="Submit" id="submit" />
-          </form>
+              <input type="submit" value="Submit" id="submit" />
+            </form>
+          </div>
         </div>
       </div>
 
-      {loading ? <LoadingDiv/> :""}
+      {loading ? <LoadingDiv /> : ""}
     </>
   );
 }

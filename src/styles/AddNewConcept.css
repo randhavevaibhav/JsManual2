@@ -4,7 +4,7 @@
     border: solid white 1px;
     padding: 0px;
     border-radius: 10px;
-    margin-left: 200px;
+    
     margin-top: 20px;
     display: flex;
   align-items: center;
@@ -84,12 +84,21 @@ input#submit{
   opacity: .5; /* in FireFox */ 
   filter: alpha(opacity=50); /* in IE */
 }
-
+.wrapper-container{
+  display: flex;
+  margin-left: 200px;
+ 
+  width: 100%;
+  justify-content: center;
+}
 
 
 @media only screen and (max-width: 600px) {
+  .wrapper-container{
+    margin-left: 0px;
+  }
     .concept-main-container{
-      margin-left: 12px;
+     
       margin-top: 57px;
       width: 94vw;
       height: fit-content;
@@ -113,4 +122,15 @@ input#submit{
     }
   
   
+  }
+
+
+  @media only screen and (max-width: 360px) {
+
+    #IMPPoints-text-container > input
+    {
+      width: 190px;
+    }
+  
+
   }
