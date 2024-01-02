@@ -151,25 +151,27 @@ function AddNewConcept() {
     setLoading(true);
     disableScreen();
 
-    setTimeout(() => {
-      setLoading(false);
-      enableScreen();
-    }, 4000);
+    //sample code to mimic database operation
+    
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   enableScreen();
+    // }, 4000);
 
-    // axios
-    //   .post(
-    //     `https://js-manual2-backend.vercel.app/jstopics/newtopic`,
-    //     PformData
-    //   )
-    //   .then(() => {
-    //     alert("new topic saved to DB !!");
-    //     setLoading(false);
-    //     window.location.reload();
-    //   })
-    //   .catch((error) => {
-    //     alert(`An Error ocuured please check the console log`);
-    //     console.log(error);
-    //   });
+    axios
+      .post(
+        `https://js-manual2-backend.vercel.app/jstopics/newtopic`,
+        PformData
+      )
+      .then(() => {
+        alert("new topic saved to DB !!");
+        setLoading(false);
+        window.location.reload();
+      })
+      .catch((error) => {
+        alert(`An Error ocuured please check the console log`);
+        console.log(error);
+      });
 
     console.log("****** PformData =====> " + JSON.stringify(PformData));
 
