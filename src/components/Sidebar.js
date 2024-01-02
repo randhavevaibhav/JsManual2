@@ -21,7 +21,7 @@ const Sidebar = () => {
 
     const handleOutsideClick = (e) => {
       if (newRef.current && !newRef.current.contains(e.target)) {
-        setIsSidebarOpen(!isSidebarOpen);
+        setIsSidebarOpen(false);
       }
     };
   
