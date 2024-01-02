@@ -22,8 +22,8 @@
 .form-container>form{
     display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin: 20px;
+  gap: 1px;
+  margin: 11px;
 }
 
 .form-container>form>textarea{
@@ -34,12 +34,37 @@
 input#submit{
     width: 150px;
   height: 40px;
+  margin-top: 4px;
 }
 .form-container>form>input{
     height: 20px;
   border-radius: 6px;
 }
-
+#IMPPoints-text-container{
+  display: flex;
+  
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  margin-bottom: 3px;
+}
+#addIMPpointButton{
+  width: 128px;
+  margin-top: 5px;
+}
+#IMPPoints-text-container>input{
+  border-radius: 2px;
+  width: 207px;
+  height: 23px;
+}
+#IMPPoints-main-container{
+  display: flex;
+  justify-content: space-between;
+}
+#removeIMPpointButton{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
 
 @media only screen and (max-width: 600px) {
     .concept-main-container{

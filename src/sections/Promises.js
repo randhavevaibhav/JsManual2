@@ -6,6 +6,9 @@ import axios from 'axios';
 function Promises() {
 const QTopicName = "Promises";
 const [fetchTopic,setFetchTopic] = useState([]);
+
+
+
 useEffect(()=>{
   axios.get(`https://js-manual2-backend.vercel.app/jstopics/${QTopicName}`)
   .then((res)=>{
