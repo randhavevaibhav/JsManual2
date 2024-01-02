@@ -17,7 +17,7 @@ function AddNewConcept() {
   });
 
   const [IMPInputValues, setIMPInputValues] = useState(['']);
-  const [points, setPoints] = useState(["IMP point 1"]);
+  const [points, setPoints] = useState([]);
   let IMPPointsFlag = true;
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -271,7 +271,7 @@ function AddNewConcept() {
             />
             <br />
 
-            {points.map((point, index) => (
+            {points.length >0 ?(points.map((point, index) => (
               <div id="IMPPoints-main-container">
                 <div id="IMPPoints-text-container" key={index}>
                   <label>{point}</label>
@@ -287,7 +287,7 @@ function AddNewConcept() {
                     </button>
                   </div>
               </div>
-            ))}
+            ))):""}
             
             <button id="addIMPpointButton" type="button" onClick={()=>{addTextField()}}>
               Add IMP Point
