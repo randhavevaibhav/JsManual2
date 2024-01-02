@@ -1,0 +1,14 @@
+#loading-svg {
+    position:fixed;
+    font-size: 200px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-image: url("../assets/Eclipse-1s-200px.svg");
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1001;
+    
+  }

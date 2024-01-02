@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import TopicItems from "../components/TopicItems";
-
+import {LoadingDiv, disableScreen,enableScreen } from '../helper/LoadingHelper';
 import axios from 'axios';
 
 function Promises() {
 const QTopicName = "Promises";
 const [fetchTopic,setFetchTopic] = useState([]);
-
+const [loading,setLoading] =  useState(false);
 
 
 useEffect(()=>{
+  setLoading(true);
+  disableScreen();
   axios.get(`https://js-manual2-backend.vercel.app/jstopics/${QTopicName}`)
   .then((res)=>{
-   
+    setLoading(false);
+    enableScreen();
     setFetchTopic(res.data.data) ;
   })
   
@@ -67,6 +70,8 @@ return(
   })}
 
 </div>
+
+{loading ? <LoadingDiv/> :""}
     </>
   )
 }

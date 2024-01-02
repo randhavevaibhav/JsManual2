@@ -3,7 +3,7 @@ import { useState } from "react";
 import "../styles/AddNewConcept.css";
 import { JsTopicList } from "../helper/JSTopicList";
 import axios from "axios";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+import { LoadingDiv, disableScreen,enableScreen } from "../helper/LoadingHelper";
 
 function AddNewConcept() {
   const [formData, setFormData] = useState({
@@ -11,13 +11,15 @@ function AddNewConcept() {
     subTopicName: "",
     syntax: "",
     explanation: "",
-    IMPPoints:"",
+    IMPPoints: "",
     YTVideoTitle: "",
     YTVideoLink: "",
   });
 
-  const [IMPInputValues, setIMPInputValues] = useState(['']);
+  const [IMPInputValues, setIMPInputValues] = useState([""]);
   const [points, setPoints] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   let IMPPointsFlag = true;
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,11 +34,10 @@ function AddNewConcept() {
       let regExp =
         /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
       if (urlToParse.match(regExp)) {
-        
         return true;
       }
     }
-   return false;
+    return false;
   };
 
   const validateFormData = (formData) => {
@@ -45,38 +46,30 @@ function AddNewConcept() {
     let YTVideoTitle = formData.YTVideoTitle.length;
     let IMPInputTextFields = document.getElementsByClassName("IMPInputs");
 
-
     if (!checkTopic(formData.topicName)) {
-      
       return false;
     }
     if (topicNameLen > 50 || subTopicNameLen > 50 || YTVideoTitle > 50) {
       alert(
         "Please reduce no. of words in topic name, sub-topic name or in youtube video title"
       );
-      
+
       return false;
     }
 
-    Array.prototype.forEach.call(IMPInputTextFields, function(fields,index) {
-      
-      console.log("IMP inputs value ===> "+fields.value);
-      if(fields.value===""|| fields.value===undefined)
-      {
-        alert("Please fill input filed no. "+(index+1));
+    Array.prototype.forEach.call(IMPInputTextFields, function (fields, index) {
+      console.log("IMP inputs value ===> " + fields.value);
+      if (fields.value === "" || fields.value === undefined) {
+        alert("Please fill input filed no. " + (index + 1));
         IMPPointsFlag = false;
         return false;
       }
-      });
-
-    
-
-
+    });
 
     if (validateYouTubeUrl(formData.YTVideoLink)) {
       if (formData.YTVideoTitle === "" || formData.YTVideoTitle === undefined) {
         alert("Please enter valid youtube video title !!");
-       
+
         return false;
       }
     } else if (
@@ -88,7 +81,7 @@ function AddNewConcept() {
         !(formData.YTVideoLink === "" || formData.YTVideoLink === undefined)
       ) {
         alert("Please enter valid youtube link !!");
-        
+
         return false;
       }
     } else if (
@@ -96,15 +89,13 @@ function AddNewConcept() {
     ) {
       if (!validateYouTubeUrl(formData.YTVideoLink)) {
         alert("Please enter valid youtube link !!");
-       
-       return false;
+
+        return false;
       }
     }
 
     return true;
   };
-
-
 
   const checkTopic = (Ptopic) => {
     if (JsTopicList.indexOf(Ptopic) < 0) {
@@ -112,12 +103,11 @@ function AddNewConcept() {
         `Metioned topic is not present in the list ==> 
     available list ====> ` + JsTopicList
       );
-      
+
       return false;
     } else {
       return true;
     }
-    
   };
 
   const clearFormData = (PFormData) => {
@@ -134,62 +124,75 @@ function AddNewConcept() {
       ...blankForm,
     }));
 
-   let blankArr = [];
+    let blankArr = [];
 
-   IMPInputValues.forEach(()=>{
-    blankArr.push("");
-   })
+    IMPInputValues.forEach(() => {
+      blankArr.push("");
+    });
 
     setIMPInputValues(blankArr);
-   
-
-
-
-
   };
+
+  // const disableScreen = () => {
+  //   var div = document.createElement("div");
+  //   div.className += "overlay";
+  //   document.body.appendChild(div);
+  // };
+
+  // const enableScreen = () => {
+  //   let x = document.getElementsByClassName("overlay");
+
+  //   if (x.length > 0) {
+  //     x[0].classList.remove("overlay");
+  //   }
+  // };
 
   const saveDataToDB = (PformData) => {
-    axios
-      .post(
-        `https://js-manual2-backend.vercel.app/jstopics/newtopic`,
-        PformData
-      )
-      .then(() => {
-        alert("new topic saved to DB !!");
-      })
-      .catch((error) => {
-        alert(`An Error ocuured please check the console log`);
-        console.log(error);
-      });
-    console.log("****** PformData =====> "+JSON.stringify(PformData))
+    setLoading(true);
+    disableScreen();
 
-    console.log("***** formData.IMPPoints ======> "+formData.IMPPoints);
+    setTimeout(() => {
+      setLoading(false);
+      enableScreen();
+    }, 4000);
+
+    // axios
+    //   .post(
+    //     `https://js-manual2-backend.vercel.app/jstopics/newtopic`,
+    //     PformData
+    //   )
+    //   .then(() => {
+    //     alert("new topic saved to DB !!");
+    //     setLoading(false);
+    //     window.location.reload();
+    //   })
+    //   .catch((error) => {
+    //     alert(`An Error ocuured please check the console log`);
+    //     console.log(error);
+    //   });
+
+    console.log("****** PformData =====> " + JSON.stringify(PformData));
+
+    console.log("***** formData.IMPPoints ======> " + formData.IMPPoints);
   };
-
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    
-
     if (validateFormData(formData) && IMPPointsFlag) {
       alert("Form validation passed !!!");
-      
-      console.log("***** IMPInputValues ======> "+IMPInputValues);
 
-    formData.IMPPoints = IMPInputValues;
+      console.log("***** IMPInputValues ======> " + IMPInputValues);
+
+      formData.IMPPoints = IMPInputValues;
 
       saveDataToDB(formData);
-     
-      clearFormData(formData);
 
+      clearFormData(formData);
     } else {
       alert("Form validation Failed !!!");
-      
     }
   };
-
 
   const handleInputChange = (index, value) => {
     const updatedInputValues = [...IMPInputValues];
@@ -197,20 +200,14 @@ function AddNewConcept() {
     setIMPInputValues(updatedInputValues);
   };
 
-
   const addTextField = () => {
-    if(points.length>2)
-    {
-        alert("only 3 IMP points can be added!! ");
-    }
-    else{
+    if (points.length > 2) {
+      alert("only 3 IMP points can be added!! ");
+    } else {
       const newPointLabel = `IMP point ${points.length + 1}`;
-    setPoints([...points, newPointLabel]);
-    setIMPInputValues([...IMPInputValues, '']);
-
+      setPoints([...points, newPointLabel]);
+      setIMPInputValues([...IMPInputValues, ""]);
     }
-    
-   
   };
   const removeTextField = (index) => {
     const updatedPoints = [...points];
@@ -220,7 +217,6 @@ function AddNewConcept() {
     const updatedInputValues = [...IMPInputValues];
     updatedInputValues.splice(index, 1);
     setIMPInputValues(updatedInputValues);
-
   };
   return (
     <>
@@ -271,30 +267,41 @@ function AddNewConcept() {
             />
             <br />
 
-            {points.length >0 ?(points.map((point, index) => (
-              <div id="IMPPoints-main-container">
-                <div id="IMPPoints-text-container" key={index}>
-                  <label>{point}</label>
-                  <input type="text" 
-                   value={IMPInputValues[index]}
-                   className="IMPInputs"
-                   onChange={(e) => handleInputChange(index, e.target.value)}/>
-            
-                </div>
-                <div id="removeIMPpointButton">
-                    <button type="button" onClick={() => removeTextField(index)}>
-                      Remove Point
-                    </button>
+            {points.length > 0
+              ? points.map((point, index) => (
+                  <div id="IMPPoints-main-container">
+                    <div id="IMPPoints-text-container" key={index}>
+                      <label>{point}</label>
+                      <input
+                        type="text"
+                        value={IMPInputValues[index]}
+                        className="IMPInputs"
+                        onChange={(e) =>
+                          handleInputChange(index, e.target.value)
+                        }
+                      />
+                    </div>
+                    <div id="removeIMPpointButton">
+                      <button
+                        type="button"
+                        onClick={() => removeTextField(index)}
+                      >
+                        Remove Point
+                      </button>
+                    </div>
                   </div>
-              </div>
-            ))):""}
-            
-            <button id="addIMPpointButton" type="button" onClick={()=>{addTextField()}}>
+                ))
+              : ""}
+
+            <button
+              id="addIMPpointButton"
+              type="button"
+              onClick={() => {
+                addTextField();
+              }}
+            >
               Add IMP Point
             </button>
-
-          
-            
 
             <br />
 
@@ -317,10 +324,12 @@ function AddNewConcept() {
             />
             <br />
 
-            <input type="submit"  value="Submit" id="submit" />
+            <input type="submit" value="Submit" id="submit" />
           </form>
         </div>
       </div>
+
+      {loading ? <LoadingDiv/> :""}
     </>
   );
 }
