@@ -82,13 +82,13 @@ const TopicItems = ({
         ) : (
           ""
         )}
-
-        <div className="youtube-links padding20px">
+        {videoTitle?(<><div className="youtube-links padding20px">
           <h3>YouTube Link - </h3>
           <a href={videoLink} target="_blank" rel="noreferrer">
             {videoTitle}
           </a>
-        </div>
+        </div></>):""}
+        
       </div>
     </>
   );

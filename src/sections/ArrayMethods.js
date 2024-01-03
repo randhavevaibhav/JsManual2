@@ -1,7 +1,9 @@
 import {React,useEffect,useState} from "react";
 import axios from "axios";
 import TopicItems from "../components/TopicItems";
-import { LoadingDiv, disableScreen, enableScreen } from "../helper/LoadingHelper";
+
+import { LoadingSkeleton } from '../helper/LoadingHelper';
+import "../styles/SkeletonLoading.css";
 function ArrayMethods() {
 
 const QTopicName = "Array";
@@ -11,11 +13,11 @@ const [loading,setLoading] =  useState(false);
 
 useEffect(()=>{
   setLoading(true);
-  disableScreen();
+  
   axios.get(`https://js-manual2-backend.vercel.app/jstopics/${QTopicName}`)
   .then((res)=>{
     setLoading(false);
-    enableScreen();
+   
     setFetchTopic(res.data.data) ;
   })
   
@@ -29,9 +31,9 @@ useEffect(()=>{
 },[])
   return (
     <>
-    <div className="main-container">
+    <div className='main-container'>
 
-    {fetchTopic.map((topic, id) => {
+    {loading ? <LoadingSkeleton skeletonItems={5}/>:fetchTopic.map((topic, id) => {
         return (
           <TopicItems
             key={id}
@@ -47,7 +49,7 @@ useEffect(()=>{
 
     </div>
 
-    {loading ? <LoadingDiv/> :""}
+   
      
     </>
   );
