@@ -25,14 +25,14 @@ const Sidebar = () => {
       }
     };
 
-    const closeSidebar = (item)=>{
+    const closeSidebar = (item,e)=>{
       //close side bar if it does not have any subtopics
       if(!(toString.call(item.subTopics)==="[object Array]"))
       {
         setIsSidebarOpen(false);
       }
       //close side bar if clicked on any subtopic
-      else if(toString.call(item.id)==="[object String]")
+      else if(e.target.className==="subTopic")
       {
         setIsSidebarOpen(false);
 
@@ -98,7 +98,7 @@ const Sidebar = () => {
                   toggleMenu(item.id);
                   
                 }}>
-                 <Link to={item.path} onClick={()=>{closeSidebar(item);}}>{item.title}</Link>
+                 <Link to={item.path} className="mainTopic" onClick={(e)=>{closeSidebar(item,e);}}>{item.title}</Link>
                 </div>
                 {item.isOpen && toString.call(item.subTopics) === "[object Array]"? <>
                 <ul className="sub-menu" >
@@ -107,7 +107,7 @@ const Sidebar = () => {
                         return(<>
                         <li >
                         <FontAwesomeIcon icon={faAngleRight} size="sm" color="white"/>
-                        <Link to={subTopic.path} onClick={()=>{closeSidebar(subTopic);}} >{" "+subTopic.title}</Link>
+                        <Link to={subTopic.path} className="subTopic" onClick={(e)=>{closeSidebar(item,e);}} >{" "+subTopic.title}</Link>
                         </li>
                         </>)
 
