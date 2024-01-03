@@ -137,20 +137,6 @@ function AddNewConcept() {
     setIMPInputValues(blankArr);
   };
 
-  // const disableScreen = () => {
-  //   var div = document.createElement("div");
-  //   div.className += "overlay";
-  //   document.body.appendChild(div);
-  // };
-
-  // const enableScreen = () => {
-  //   let x = document.getElementsByClassName("overlay");
-
-  //   if (x.length > 0) {
-  //     x[0].classList.remove("overlay");
-  //   }
-  // };
-
   const saveDataToDB = (PformData) => {
     setLoading(true);
     disableScreen();
@@ -170,7 +156,7 @@ function AddNewConcept() {
       .then(() => {
         alert("new topic saved to DB !!");
         setLoading(false);
-        window.location.reload();
+       enableScreen();
       })
       .catch((error) => {
         alert(`An Error ocuured please check the console log`);
