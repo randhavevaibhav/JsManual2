@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/JsManual2/static/css/main.9b6473ef.css",
-    "main.js": "/JsManual2/static/js/main.45a6f3aa.js",
+    "main.css": "/JsManual2/static/css/main.695f99c6.css",
+    "main.js": "/JsManual2/static/js/main.f14adb20.js",
     "static/js/787.c9bf1732.chunk.js": "/JsManual2/static/js/787.c9bf1732.chunk.js",
     "index.html": "/JsManual2/index.html",
     "static/media/Eclipse-1s-200px.svg": "/JsManual2/static/media/Eclipse-1s-200px.b21f3e5d8830b7330ab4.svg",
-    "main.9b6473ef.css.map": "/JsManual2/static/css/main.9b6473ef.css.map",
-    "main.45a6f3aa.js.map": "/JsManual2/static/js/main.45a6f3aa.js.map",
+    "main.695f99c6.css.map": "/JsManual2/static/css/main.695f99c6.css.map",
+    "main.f14adb20.js.map": "/JsManual2/static/js/main.f14adb20.js.map",
     "787.c9bf1732.chunk.js.map": "/JsManual2/static/js/787.c9bf1732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b6473ef.css",
-    "static/js/main.45a6f3aa.js"
+    "static/css/main.695f99c6.css",
+    "static/js/main.f14adb20.js"
   ]
 }
