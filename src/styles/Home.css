@@ -12,7 +12,8 @@
 .home-container{
     width: 80%;
     height: 92%;
-  border: solid;
+    border: solid white 1px;
+    border-radius: 10px;
 
 }
 
@@ -24,6 +25,7 @@
     }
     .home-container{
         width: 92%;
-        height: 83%;
+        height: fit-content;
+        margin-top: 38px;
     }
   }
