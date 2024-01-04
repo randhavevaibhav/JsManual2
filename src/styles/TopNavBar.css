@@ -1,0 +1,21 @@
+.NavBar-Main-Div{
+    background-color:#333;
+    padding : 15px; 
+    gap: 8px;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.NavBar-items{
+    margin-left: 15px;
+    color: "#fff";
+    cursor: pointer;
+}
+
+.NavBar-Main-Div-Wrapper{
+
+    display: flex;
+  justify-content: flex-end;
+  border: solid;
+  width: 100vw;
+}

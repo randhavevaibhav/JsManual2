@@ -1,0 +1,29 @@
+.Home-container-wrapper{
+
+  
+  width: 72%;
+  height: 98vh;
+  margin-left: 287px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-container{
+    width: 80%;
+    height: 92%;
+  border: solid;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .Home-container-wrapper{
+        margin-left: 0;
+        width: 100vw;
+  
+    }
+    .home-container{
+        width: 92%;
+        height: 83%;
+    }
+  }

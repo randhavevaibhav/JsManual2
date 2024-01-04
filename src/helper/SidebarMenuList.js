@@ -1,7 +1,8 @@
 export const SidebarMenuList = [
-  { id: 1, title: "Print Code", isOpen: false, path: "/JsManual2/printcode" },
+  { id: 1, title: "Home", isOpen: false, path: "/JsManual2" },
+  { id: 2, title: "Print Code", isOpen: false, path: "/JsManual2/printcode" },
   {
-    id: 2,
+    id: 3,
     title: "Topics",
     isOpen: false,
     path: "/JsManual2/topics",
@@ -11,7 +12,7 @@ export const SidebarMenuList = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Add new concept",
     isOpen: false,
     path: "/JsManual2/addnewconcept",

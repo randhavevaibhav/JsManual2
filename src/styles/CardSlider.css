@@ -1,0 +1,48 @@
+/* CardSlider.css */
+.card-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .cards-container {
+    display: flex;
+    /* transition: transform 0.5s ease-in-out; */
+  }
+  
+  .card {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .card img {
+    width: 600px;
+    height: 500px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  .card-description>p{
+    word-wrap: break-word;
+  }
+  .card-content>h3{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  /* You can add more styling based on your design preferences */
+  @media only screen and (max-width: 600px) {
+    
+    .card img{
+        width: 100%;
+    }
+  }
