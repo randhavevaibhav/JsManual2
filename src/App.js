@@ -9,6 +9,7 @@ import Promises from "./sections/Promises";
 import AddNewConcept from "./components/AddNewConcept";
 
 import Home from "./components/Home";
+import StringJS from "./sections/StringJS";
 function App() {
 
 
@@ -26,6 +27,9 @@ function App() {
        
         <Route path="/JsManual2/arraymethods" element={<ArrayMethods/>}/>
         <Route path="/JsManual2/promises" element={<Promises/>}/>
+        <Route path="/JsManual2/string" element={<StringJS/>}/>
+
+
         <Route path="/JsManual2/addnewconcept" element={<AddNewConcept/>}/>
     
       

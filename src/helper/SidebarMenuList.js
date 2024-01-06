@@ -7,7 +7,8 @@ export const SidebarMenuList = [
     isOpen: false,
     path: "/JsManual2/topics",
     subTopics: [{path: "/JsManual2/arraymethods", title: "Array" },
-    {path: "/JsManual2/promises", title: "Promises in js" }
+    {path: "/JsManual2/promises", title: "Promises in js" },
+    {path: "/JsManual2/string", title: "String" }
         
     ],
   },

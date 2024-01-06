@@ -114,7 +114,7 @@ function AddNewConcept() {
     }
   };
 
-  const clearFormData = (PFormData) => {
+  const clearFormData = () => {
     const blankForm = {
       topicName: "",
       subTopicName: "",

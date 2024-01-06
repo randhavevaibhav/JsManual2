@@ -1,1 +1,1 @@
-export const JsTopicList=["Array","Promises"];
+export const JsTopicList=["Array","Promises","String"];

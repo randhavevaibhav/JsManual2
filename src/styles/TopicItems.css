@@ -7,6 +7,7 @@
   max-height: fit-content;
   min-height: 600px;
   width: 500px;
+  width: 90%;
 }
 
 
@@ -17,6 +18,7 @@
   padding: 0px;
   border-radius: 10px;
   margin: 10px;
+  width: 30%;
 }
 .padding20px {
   padding: 20px;
@@ -65,11 +67,45 @@ p {
   }
 }
 
+@media only screen and (max-width: 850px) and (min-width: 600px) {
+ 
+  .main-container {
+    margin-left: 250px;
+  
+  }
+  .container {
+  
+    width: 80%;
+  }
+}
+
 
 @media only screen and (max-width: 400px) {
   
   .main-container {
   
     width: 138%;
+  }
+}
+
+
+
+@media only screen and (max-width: 950px) and (min-width: 710px){
+  
+  .container {
+  
+    /* width: 45%; */
+    width: 79%;
+  }
+}
+
+
+@media only screen and (max-width: 1150px) and (min-width: 950px){
+  
+  .container {
+  
+    /* width: 45%; */
+    /* width: 79%; */
+    width: 46%;
   }
 }
