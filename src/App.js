@@ -4,9 +4,12 @@ import PrintCode from "./components/PrintCode";
 import { useState } from "react";
 import ConvertedCode from "./components/CovertedCode";
 import Sidebar from "./components/Sidebar";
+
 import ArrayMethods from "./sections/ArrayMethods";
 import Promises from "./sections/Promises";
+import ObjectJs from "./sections/ObjectJs";
 import AddNewConcept from "./components/AddNewConcept";
+
 import { IsLoadingContex } from "./Contexts/IsLoadingContex";
 import Home from "./components/Home";
 import StringJS from "./sections/StringJS";
@@ -33,6 +36,7 @@ function App() {
               />
               <Route path="/JsManual2/promises" element={<Promises />} />
               <Route path="/JsManual2/string" element={<StringJS />} />
+              <Route path="/JsManual2/object" element={<ObjectJs />} />
 
               <Route
                 path="/JsManual2/addnewconcept"
