@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import TopicItems from "../components/TopicItems";
-import { LoadingSkeleton } from "../helper/LoadingHelper";
-import "../styles/SkeletonLoading.css";
-import useFetchTopicDB from "../helper/useFetchTopicDB";
+import { LoadingSkeleton } from "./LoadingHelper";
+import useFetchTopicDB from "./useFetchTopicDB";
 import { IsLoadingContex } from "../Contexts/IsLoadingContex";
 
 function CreateSection({QTopicName}) {
@@ -15,7 +14,7 @@ function CreateSection({QTopicName}) {
     <>
       <div className="main-container">
         {loading ? (
-          <LoadingSkeleton skeletonItems={1} />
+          <LoadingSkeleton skeletonItems={10} />
         ) : (
           data.map((val) => {
             return (
@@ -31,7 +30,10 @@ function CreateSection({QTopicName}) {
             );
           })
         )}
+        
       </div>
+
+      
     </>
   );
 }

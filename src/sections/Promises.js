@@ -1,5 +1,5 @@
 import React from "react";
-import CreateSection from "./CreateSection";
+import CreateSection from "../helper/CreateSection";
 
 function Promises() {
   return (
