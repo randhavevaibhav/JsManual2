@@ -59,53 +59,24 @@ p {
 
 @media only screen and (max-width: 600px) {
   .container {
-    width: 68%;
+    width: 93%;
   }
   .main-container {
     margin-left: 0px;
-    width: 566px;
+    width: 100vw;
   }
 }
 
-@media only screen and (max-width: 850px) and (min-width: 600px) {
+@media only screen and (max-width: 1000px) and (min-width: 800px) {
+  .container {
+    width: 83%;
+  }
  
-  .main-container {
-    margin-left: 250px;
-  
-  }
-  .container {
-  
-    width: 80%;
-  }
-}
-
-
-@media only screen and (max-width: 400px) {
-  
-  .main-container {
-  
-    width: 138%;
-  }
 }
 
 
 
-@media only screen and (max-width: 950px) and (min-width: 710px){
-  
-  .container {
-  
-    /* width: 45%; */
-    width: 79%;
-  }
-}
 
 
-@media only screen and (max-width: 1150px) and (min-width: 950px){
-  
-  .container {
-  
-    /* width: 45%; */
-    /* width: 79%; */
-    width: 46%;
-  }
-}
+
+
