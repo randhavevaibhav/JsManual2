@@ -6,7 +6,7 @@
   margin-left: 287px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .home-container{
@@ -25,14 +25,15 @@
     }
     .home-container{
         width: 92%;
-        height: fit-content;
+        height: calc(100vw - -183px);
+        margin-top: 49px;
     }
   }
 
   @media only screen and (max-width: 377px) and (min-width: 350px){
     .home-container{
       
-        margin-top: 36px;
-        height: 89vh;
+      margin-top: 46px;
+      
     }
   }
