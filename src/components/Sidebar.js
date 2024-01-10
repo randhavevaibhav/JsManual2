@@ -106,8 +106,10 @@ const Sidebar = () => {
                    {item.subTopics.map((subTopic)=>{
                         return(<>
                         <li >
+                        <div>
                         <FontAwesomeIcon icon={faAngleRight} size="sm" color="white"/>
                         <Link to={subTopic.path} className="subTopic" onClick={(e)=>{closeSidebar(item,e);}} >{" "+subTopic.title}</Link>
+                        </div>
                         </li>
                         </>)
 
