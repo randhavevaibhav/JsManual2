@@ -69,12 +69,9 @@
 @media only screen and (max-width: 600px) {
   .skeleton-main-container{
 
-    width: 92vw;
+    width: 87vw;
+    margin-left: 12px;
   }
-  .skeleton-main-container > .first-container > .first-container-right
-  {
-    /* margin-left: 299px; */
-  }
-
+ 
 
 }
