@@ -13,14 +13,18 @@ import AddNewConcept from "./components/AddNewConcept";
 import { IsLoadingContex } from "./Contexts/IsLoadingContex";
 import Home from "./components/Home";
 import StringJS from "./sections/StringJS";
+
+import { GetScreenDimentions } from "./helper/GetScreenDimentions";
+
 function App() {
   const [loading, setLoading] = useState(false);
 
+  
   return (
     <>
       <IsLoadingContex.Provider value={{loading,setLoading} }>
         <div id="App">
-          {/* {window.addEventListener('resize', getScreenWidth)} */}
+          {/* {window.addEventListener('resize', GetScreenDimentions)} */}
           <Router>
             {/* {screenWidth<620?<Sidebar/>:""} */}
             <Sidebar />

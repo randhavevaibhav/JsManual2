@@ -62,7 +62,7 @@ function AddNewConcept() {
     }
 
     Array.prototype.forEach.call(IMPInputTextFields, function (fields, index) {
-      console.log("IMP inputs value ===> " + fields.value);
+      
       if (fields.value === "" || fields.value === undefined) {
         alert("Please fill input filed no. " + (index + 1));
         IMPPointsFlag = false;
@@ -163,9 +163,7 @@ function AddNewConcept() {
         console.log(error);
       });
 
-    console.log("****** PformData =====> " + JSON.stringify(PformData));
-
-    console.log("***** formData.IMPPoints ======> " + formData.IMPPoints);
+   
   };
 
   const handleSubmit = (event) => {

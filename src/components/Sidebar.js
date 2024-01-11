@@ -83,6 +83,7 @@ const Sidebar = () => {
   
     return (
       <>
+      
       <div className="sidebar-container" ref={newRef}>
       <div className="hamburger-icon" onClick={()=>{
           toggleSidebar();
