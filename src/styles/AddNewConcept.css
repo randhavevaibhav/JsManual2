@@ -15,8 +15,9 @@
     /* border: solid white 1px; */
   padding: 0px;
   border-radius: 10px;
-  height: 97%;
+  height: 37rem;
   width: 80%;
+  display: flex;
 }
 
 .form-container>form{
@@ -24,6 +25,7 @@
   flex-direction: column;
   gap: 1px;
   margin: 11px;
+  width: 100%;
 }
 
 .form-container>form>textarea{
@@ -33,11 +35,12 @@
 }
 input#submit{
     width: 150px;
-  height: 40px;
+  height: 4rem;
+
   margin-top: 4px;
 }
 .form-container>form>input{
-    height: 20px;
+  height: 32px;
   border-radius: 6px;
 }
 #IMPPoints-text-container{
@@ -103,7 +106,7 @@ input#submit{
     }
 
     .form-container>form{
-      gap: 3px;
+      gap: 2px;
     }
 
     #IMPPoints-text-container > input
