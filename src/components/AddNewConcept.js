@@ -8,6 +8,7 @@ import {
   enableScreen,
 } from "../helper/LoadingHelper";
 import { validateFormData } from "../helper/validations/ValidateFormData";
+import { ClearFormData } from "../helper/ClearFormData";
 
 function AddNewConcept() {
   const [formData, setFormData] = useState({
@@ -35,31 +36,27 @@ function AddNewConcept() {
 
 
 
+  //   const blankForm = {
+  //     topicName: "",
+  //     subTopicName: "",
+  //     syntax: "",
+  //     explanation: "",
+  //     YTVideoTitle: "",
+  //     YTVideoLink: "",
+  //   };
+  //   setFormData((formData) => ({
+  //     ...formData,
+  //     ...blankForm,
+  //   }));
 
+  //   let blankArr = [];
 
+  //   IMPInputValues.forEach(() => {
+  //     blankArr.push("");
+  //   });
 
-  const clearFormData = () => {
-    const blankForm = {
-      topicName: "",
-      subTopicName: "",
-      syntax: "",
-      explanation: "",
-      YTVideoTitle: "",
-      YTVideoLink: "",
-    };
-    setFormData((formData) => ({
-      ...formData,
-      ...blankForm,
-    }));
-
-    let blankArr = [];
-
-    IMPInputValues.forEach(() => {
-      blankArr.push("");
-    });
-
-    setIMPInputValues(blankArr);
-  };
+  //   setIMPInputValues(blankArr);
+  // };
 
   const saveDataToDB = (PformData) => {
     setLoading(true);
@@ -102,7 +99,8 @@ function AddNewConcept() {
 
       saveDataToDB(formData);
 
-      clearFormData(formData);
+      // clearFormData(formData);
+      ClearFormData(formData,setFormData,IMPInputValues,setIMPInputValues);
     } else {
       alert("Form validation Failed !!!");
     }
