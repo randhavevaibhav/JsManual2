@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/AddNewConcept.css";
-import { JsTopicList } from "../helper/JSTopicList";
 import axios from "axios";
 import {
   LoadingDiv,
   disableScreen,
   enableScreen,
 } from "../helper/LoadingHelper";
+import { validateFormData } from "../helper/validations/ValidateFormData";
 
 function AddNewConcept() {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ function AddNewConcept() {
   const [points, setPoints] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  let IMPPointsFlag = true;
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -33,86 +33,10 @@ function AddNewConcept() {
     }));
   };
 
-  const validateYouTubeUrl = (urlToParse) => {
-    if (urlToParse) {
-      let regExp =
-        /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-      if (urlToParse.match(regExp)) {
-        return true;
-      }
-    }
-    return false;
-  };
 
-  const validateFormData = (formData) => {
-    let topicNameLen = formData.topicName.length;
-    let subTopicNameLen = formData.subTopicName.length;
-    let YTVideoTitle = formData.YTVideoTitle.length;
-    let IMPInputTextFields = document.getElementsByClassName("IMPInputs");
 
-    if (!checkTopic(formData.topicName)) {
-      return false;
-    }
-    if (topicNameLen > 50 || subTopicNameLen > 50 || YTVideoTitle > 50) {
-      alert(
-        "Please reduce no. of words in topic name, sub-topic name or in youtube video title"
-      );
 
-      return false;
-    }
 
-    Array.prototype.forEach.call(IMPInputTextFields, function (fields, index) {
-      
-      if (fields.value === "" || fields.value === undefined) {
-        alert("Please fill input filed no. " + (index + 1));
-        IMPPointsFlag = false;
-        return false;
-      }
-    });
-
-    if (validateYouTubeUrl(formData.YTVideoLink)) {
-      if (formData.YTVideoTitle === "" || formData.YTVideoTitle === undefined) {
-        alert("Please enter valid youtube video title !!");
-
-        return false;
-      }
-    } else if (
-      formData.YTVideoTitle === "" ||
-      formData.YTVideoTitle === undefined
-    ) {
-      if (
-        !validateYouTubeUrl(formData.YTVideoLink) &&
-        !(formData.YTVideoLink === "" || formData.YTVideoLink === undefined)
-      ) {
-        alert("Please enter valid youtube link !!");
-
-        return false;
-      }
-    } else if (
-      !(formData.YTVideoTitle === "" || formData.YTVideoTitle === undefined)
-    ) {
-      if (!validateYouTubeUrl(formData.YTVideoLink)) {
-        alert("Please enter valid youtube link !!");
-
-        return false;
-      }
-    }
-
-    return true;
-  };
-
-  const checkTopic = (Ptopic) => {
-    if (JsTopicList.indexOf(Ptopic) < 0) {
-      alert(
-        `Metioned topic is not present in the list ==> 
-    available list ====> ` + JsTopicList
-      );
-
-      return false;
-    } else {
-      return true;
-    }
-  };
 
   const clearFormData = () => {
     const blankForm = {
@@ -169,7 +93,7 @@ function AddNewConcept() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (validateFormData(formData) && IMPPointsFlag) {
+    if (validateFormData(formData) ) {
       alert("Form validation passed !!!");
 
       console.log("***** IMPInputValues ======> " + IMPInputValues);
