@@ -9,6 +9,7 @@ import ArrayMethods from "./sections/ArrayMethods";
 import Promises from "./sections/Promises";
 import ObjectJs from "./sections/ObjectJs";
 import AddNewConcept from "./components/AddNewConcept";
+import DeleteTopic from "./components/DeleteTopic";
 
 import { IsLoadingContex } from "./Contexts/IsLoadingContex";
 import Home from "./components/Home";
@@ -35,17 +36,21 @@ function App() {
               <Route path="/JsManual2/concode" element={<ConvertedCode />} />
 
               <Route
-                path="/JsManual2/arraymethods"
+                path="/JsManual2/Array"
                 element={<ArrayMethods />}
               />
-              <Route path="/JsManual2/promises" element={<Promises />} />
-              <Route path="/JsManual2/string" element={<StringJS />} />
-              <Route path="/JsManual2/object" element={<ObjectJs />} />
+              <Route path="/JsManual2/Promises" element={<Promises />} />
+              <Route path="/JsManual2/String" element={<StringJS />} />
+              <Route path="/JsManual2/Object" element={<ObjectJs />} />
 
               <Route
                 path="/JsManual2/addnewconcept"
                 element={<AddNewConcept />}
               />
+
+            <Route path='/JsManual2/:topic/deletetopic/:id' 
+            element={<DeleteTopic/>}/>
+
             </Routes>
           </Router>
         </div>

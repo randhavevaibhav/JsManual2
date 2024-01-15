@@ -5,10 +5,12 @@ import hljs from "highlight.js";
 import "highlightjs-copy/dist/highlightjs-copy.min.css";
 import { useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Link } from "react-router-dom";
 
 const TopicItems = ({
   idx,
   topicName,
+  subTopicName,
   syntax,
   explanation,
   IMPPoints,
@@ -22,10 +24,10 @@ const TopicItems = ({
 
   return (
     <>
-      <div className="container" id={idx}>
+      <div className="container">
         <div className="first-section">
           <div className="topic-name padding20px">
-            <b>{topicName}</b>
+            <b>{subTopicName}</b>
           </div>
           <div id="copy-button">
             <CopyToClipboard
@@ -88,8 +90,16 @@ const TopicItems = ({
             {videoTitle}
           </a>
         </div></>):""}
+
+        <div id="delete-button">
+          <Link to={`/JsManual2/${topicName}/deletetopic/${idx}`}>
+          <button>Delete Topic</button>
+          </Link>
+          
+      </div>
         
       </div>
+     
     </>
   );
 };

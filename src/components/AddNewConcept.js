@@ -36,27 +36,7 @@ function AddNewConcept() {
 
 
 
-  //   const blankForm = {
-  //     topicName: "",
-  //     subTopicName: "",
-  //     syntax: "",
-  //     explanation: "",
-  //     YTVideoTitle: "",
-  //     YTVideoLink: "",
-  //   };
-  //   setFormData((formData) => ({
-  //     ...formData,
-  //     ...blankForm,
-  //   }));
 
-  //   let blankArr = [];
-
-  //   IMPInputValues.forEach(() => {
-  //     blankArr.push("");
-  //   });
-
-  //   setIMPInputValues(blankArr);
-  // };
 
   const saveDataToDB = (PformData) => {
     setLoading(true);

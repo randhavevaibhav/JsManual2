@@ -1,8 +1,11 @@
 import "../styles/LoadingSVG.css";
 import "../styles/SkeletonLoading.css";
+
+
 export const disableScreen = () => {
   var div = document.createElement("div");
   div.className += "overlay";
+  
   document.body.appendChild(div);
 };
 

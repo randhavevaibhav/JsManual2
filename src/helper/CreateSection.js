@@ -17,10 +17,12 @@ function CreateSection({QTopicName}) {
           <LoadingSkeleton skeletonItems={10} />
         ) : (
           data.map((val) => {
+           
             return (
               <TopicItems
-                key={val._id}
-                topicName={val.subTopicName}
+                idx={val._id}
+                topicName={val.topicName}
+                subTopicName={val.subTopicName}
                 syntax={val.syntax}
                 explanation={val.explanation}
                 IMPPoints={val.IMPPoints}

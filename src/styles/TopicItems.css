@@ -19,6 +19,7 @@
   border-radius: 10px;
   margin: 10px;
   width: 30%;
+  height: fit-content;
 }
 .padding20px {
   padding: 20px;
@@ -56,6 +57,18 @@ p {
   padding: 10px;
   flex-wrap: wrap;
 }
+
+#delete-button
+{
+  
+  /* border: solid 2px; */
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+
+}
+
+
 
 @media only screen and (max-width: 600px) {
   .container {

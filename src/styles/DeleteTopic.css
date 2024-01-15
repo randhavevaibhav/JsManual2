@@ -1,0 +1,52 @@
+.del-container-wrapper{
+    width: 100%;
+  height: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 119px;
+}
+
+.del-container{
+    width: 28rem;
+  height: 25rem;
+  border: solid 1px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.del-yes-no{
+    display: flex;
+  justify-content: space-between;
+  width: 39%;
+}
+
+.del-buttons{
+    width: 5rem;
+}
+
+.del-loading-div{
+    width: 19rem;
+  height: 4rem;
+  border: solid 1px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.del-loading-div>p{
+    padding: 10px;
+    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 600px) {
+  
+
+    .del-yes-no{
+        width: 54%;
+    }
+  }
