@@ -18,32 +18,32 @@ function DeleteTopic() {
 
   const handelDeleteTopic = () => {
     setLoading(true);
-    axios
-      .delete(`https://js-manual2-backend.vercel.app/jstopics/${id}`)
-      .then(() => {
-        setIsTopicDeleted(true);
-        setTimeout(() => {
-          navigate(`/JsManual2/${topic}`);
-          setLoading(false);
-        }, 2000);
-      })
-      .catch((error) => {
-        setLoading(false);
-        alert(`An error happened. Please check console logs`);
-        console.log(error);
-      });
+    // axios
+    //   .delete(`https://js-manual2-backend.vercel.app/jstopics/${id}`)
+    //   .then(() => {
+    //     setIsTopicDeleted(true);
+    //     setTimeout(() => {
+    //       navigate(`/JsManual2/${topic}`);
+    //       setLoading(false);
+    //     }, 2000);
+    //   })
+    //   .catch((error) => {
+    //     setLoading(false);
+    //     alert(`An error happened. Please check console logs`);
+    //     console.log(error);
+    //   });
 
     //code for mimic delete topic
 
-    // setTimeout(() => {
+    setTimeout(() => {
 
-    //     setIsTopicDeleted(true);
-    //     setTimeout(() => {
-    //         navigate(`/JsManual2/${topic}`);
-    //         setLoading(false);
-    //     }, 1000);
+        setIsTopicDeleted(true);
+        setTimeout(() => {
+            navigate(`/JsManual2/${topic}`);
+            setLoading(false);
+        }, 1000);
 
-    // }, 3000);
+    }, 3000);
   };
 
   return (
